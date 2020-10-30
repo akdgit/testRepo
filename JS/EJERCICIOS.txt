@@ -1,0 +1,255 @@
+alert('BEBÉ PAULA - LINDO BEBÉ');
+
+console.log('mensaje a la consola');
+/*
+function mensaje() {
+    var msj='Mensaje enviado por function';
+    console.log(msj);
+
+    let ciudad='Bogotá'; //let para variables globales - var locales
+    console.log(ciudad);
+  }
+  mensaje();
+
+  var cantidad = "100";
+  var ncant= Number(cantidad);
+
+  var act = true;
+  var estado = Boolean(5>4);
+
+  var fecha = new Date();
+*/
+  var persona={nombre: 'Juan', equipo: 'Racing'};
+
+  var personas = [
+      {nombre: 'Javier Arias', posicion: 'Arquero'},
+      {nombre: 'Ivan Pillud', posicion: 'Lateral Derecho'},
+      {nombre: 'Leo Sígali', posicion: 'Defensa Central'},
+      persona
+    
+  ]
+
+
+  var personaJSON = JSON.stringify(persona); //simulando que se envió el arreglo a un server se convirtió en strins
+
+  var nuevaPersona = JSON.parse(personaJSON); //parseo para recuperar el arreglo
+
+  var a=10;
+  var b=10;
+
+   var y = (a>5 && b>15)
+   console.log('El resultado de la comparación es: ' + y);
+
+   var o = (a>587 || b>15);
+   console.log('El estudio de o es: ' + o);
+
+   var no = !(a>7)
+   console.log('El resultado es: ' + no);
+
+   var masIgual = 10;
+
+   masIgual+= (a)
+   console.log('el valor es:' + masIgual);
+
+   var res = a > b ? "a es mayor" : "b es mayor";
+   console.log("Con el operador ternario o condicional, se concluye que: " + res);
+
+   var imp;
+   if(a>b){
+       imp = 'a es mayor';
+   }else if(b>a){
+       imp='b es mayor';
+   }else {
+       imp = 'a y b son iguales';
+   } 
+   console.log('Según lo comparado: ' + imp);
+
+
+   var edad= 40;
+   var result = "";
+
+   switch (edad) {
+       case 10:
+           result= 'Es un niño'
+        break;
+        case 15:
+            result= 'Es un adolescente';
+        break;
+        case 25:
+            result= 'Es un adulto';
+        break;
+        default:
+            result='Adulto contemporáneo';
+        break;
+   }
+
+   
+/*
+   for (let contador= 0; contador < producto; contador ++) {
+        console.log('Prodcuto #' + contador);
+        debugger;
+   }
+*/
+
+/*
+while(producto > 0) {
+    console.log('quedan '+ producto + ' productos.');
+    producto --;
+    debugger;
+}
+*/
+
+/*
+var pro = 5;
+do {
+    console.log('quedan '+ pro );
+    pro --;
+}
+    while(pro > 0) 
+*/
+
+var contador = 0
+var cuenta= 0 ;
+/*
+for (contador=0; contador <=20; contador++) {
+    if(contador % 2 == 0) {
+        continue; // continúa el ciclo ignorando las demás instrucciones
+    }
+    cuenta++;
+} */
+
+for (contador=0; contador <=20; contador++) {
+    if(contador == 5) {
+        break; // rompe el ciclo cuando se cumple el if
+    }
+    if (contador % 2 == 0) {
+        continue;
+    }
+    cuenta++;
+}
+    console.log('Hay ' + cuenta + ' números impares');
+
+    function saludar(nombre, edad) {
+        console.log('hola ' + nombre);
+        console.log('tienes ' + edad);
+        var resultado= 'Se llama ' + nombre + ' y tiene ' + edad + ' años de edad.';
+        return resultado;
+       
+    }
+
+    //var mensaje = saludar('pedro',50);
+    console.log(saludar('pedro',50));
+
+    //Parámetros REST - al declarar la funsión
+    function alineacion(jugador1, jugador2, ...restoJugadores) {
+        console.log(jugador1,jugador2,restoJugadores);
+    }
+    alineacion('Arias','Pillud','Sígali','Orban','Mena','Rojas','Miranda','Díaz','Garré','Cvitanich','López');
+
+
+    //Parámetros tipo SPREAD - Al invocar la función.
+    function receta(ingrediente1, ingrediente2,ingrediente3){
+        console.log('1/2 kilo de ' + ingrediente1);
+        console.log('3 ' + ingrediente2);
+        console.log('2 cucharadas de '+ ingrediente3);
+
+    }
+    var ingredienteBase = ['harina','huevos'];
+    receta(...ingredienteBase,' azucar');
+
+
+    //Combinar parámetros REST/SPREAD.
+       function receta2(ingrediente1, ingrediente2,ingrediente3, ...otros){
+        console.log('1/2 kilo de ' + ingrediente1);
+        console.log('3 ' + ingrediente2);
+        console.log('2 cucharadas de '+ ingrediente3);
+        console.log('además: ' + otros);
+
+    }
+    var ingredienteBase = ['harina','huevos'];
+    receta2(...ingredienteBase,' azucar','margarina', 'leche', 'cacao');
+
+
+    //funcion anonima
+    var saludar = function(tu) {
+        var prn = 'hola ' + tu;
+        return prn;
+    }
+
+    //cakkback
+
+    function calcular(datoA,datoB,sumaCB,RestaCB){
+        var suma=datoA+datoB;
+        var resta=datoA-datoB;
+
+        sumaCB(suma);
+        RestaCB(resta);
+
+    }
+
+    calcular(2,3, function(resultado) {
+        console.log('suma',resultado)
+    },function(resultado) {
+        console.log('resta ', resultado)
+    })
+
+
+    //FUNCTION ARROW
+    var saluda = nom => 'hello world' + nom;
+    console.log(saluda('Ana'));
+
+    var calc = (datA,datB) => datA+datB
+    console.log(calc(252,514));
+
+    var adi = can => can + 10
+    console.log(adi(10));
+
+    var generar = (a1,b1) => {
+        var otrodato = 5;
+        return a1+b1+otrodato;
+    }
+    console.log(generar(54,54));
+
+
+    var validar = () => {
+        return 'validación correcta';
+
+    }
+    console.log(validar());
+
+archico html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Script src="js/app.js"></SCript>
+    //<script>
+        //alert('Aguante la AKD');
+        //var nom="Bebé Paula";
+        //console.log('El bebé mas lindo del mundo es: ',nom);
+
+   // </script>
+    <style>
+        div{
+            width: 20px;
+            height: 50px;
+            background-color: chocolate;
+            text-align: center;
+            padding: 2%;
+            margin: 0 auto;
+            color: white;
+            border-radius: 10px;
+            box-shadow:5px 5px 5px gray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="boton">
+        clic para obtener el contenido.
+    </div>
+    6:32 PM 10/20/2020
+</body>
+</html>

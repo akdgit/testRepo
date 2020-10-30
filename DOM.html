@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1 class="title">El crack de la afición </h1>
+    <button id="boton">¡Púlsame!</button>
+    <button id="insertar">Insertar datos</button>
+    <div id="container">
+    <p class="principal">
+        Todos se giran al que sube por las escaleras. Lo reconocen, y Gardel –acostumbrado a ser el centro de las miradas– devuelve el cariño con una sonrisa blanca y eterna, la misma que lo transformó en un golazo en París y en el mundo entero.
+    </p>
+    <p>
+        Sigue subiendo por la tribuna, Carlitos. Mira a todos sin mirar a nadie, buscando su lugar en este estadio de fútbol que le resulta tanto más ajeno que los burros donde le gusta pasar los domingos, jugando a ganador.
+    </p>
+     <p>
+        Pero este domingo es distinto, porque se vino a ver a Racing. Amigos son los amigos, y se lo prometió anoche a Pedro Ochoa, Ochoíta, como él mismo lo bautizó. Entre risas y copas, aceptó el desafío y se mandó nomás.
+     </p>
+     <p>
+        Encima, el Morocho de Abasto y Racing se quieren, se adoran. Desde hace mucho, desde ese lejano 1914, cuando presentó el espectáculo “El Paraíso” en el Teatro El Nacional, junto con la compañía de Elías Alippi y Francisco Duchasi. Y fue el propio Alippi el que le contagió su amor por Racing Club, amor tanguero, de compadritos, a todo o nada.
+
+     </p>
+     <p>
+        Se viene Racing a la cancha; la gente explota, aplaude eufóricamente. No importa si esa tarde se juega un simple amistoso, a los uruguayos hay que ganarles siempre, porque son los únicos que están a nuestra altura. El football podrán haberlo inventado los ingleses, pero el fóbal se inventó en el Río de la Plata, y nadie lo juega como nosotros.
+     </p>
+</div>
+<script>
+  var todosLosParrafos = document.getElementsByTagName('p');
+  var parrafoPorClases = document.getElementsByClassName('principal') [0].textContent;
+  var foto = document.createElement('img');
+  foto.src = 'fotos/rac.jpg';
+  foto.name = 'rac';
+  foto.window = '400';
+  document.body.appendChild(foto);
+
+  var boton = document.getElementById("boton");
+  boton.addEventListener('click',function() {
+    boton.style.backgroundColor = 'green';
+    boton.style.background = 'white';
+    boton.style.width = '200px';
+    console.log(window.location.href);
+    console.log(todosLosParrafos);
+    console.log(parrafoPorClases);
+  });
+
+  foto.addEventListener('click', function() {
+    if(this.name == 'rac') {
+      this.src='fotos/hum.jpg';
+      this.name='hum';
+    }else{
+      this.src='fotos/rac.jpg';
+      this.name='ras';
+    }
+  })
+
+  var bInsertar = document.getElementById("insertar");
+  var principal = document.getElementsByClassName('principal') [0]
+  localStorage.setItem('contenido', 'Código y café es una gran combinación.');
+
+  bInsertar.addEventListener('click', function () {
+    var contenido = localStorage.getItem('contenido');
+    principal.innerHTML = contenido;
+  })
+
+</script>
+<Script src="js/dom.js"></SCript>    
+</body>
+</html>
